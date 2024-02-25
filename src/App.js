@@ -1,24 +1,68 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import NavBar from './NavBar';
+import WorkoutList from './workoutList';
+import CreateWorkout from './createWorkout';
+import DeleteWorkout from './deleteWorkout';
+import UpdateWorkout from './updateWorkout';
+import HomePage from './homePage';
+import RegisterPage from './registerPage'; // Import the RegisterPage component
 
 function App() {
+  const [workouts, setWorkouts] = useState([]);
+
+  const handleWorkoutCreated = (newWorkout) => {
+    setWorkouts((prevWorkouts) => [...prevWorkouts, newWorkout]);
+  };
+
+  const handleWorkoutUpdate = (index, updatedWorkout) => {
+    setWorkouts((prevWorkouts) => {
+      const newWorkouts = [...prevWorkouts];
+      newWorkouts[index] = updatedWorkout;
+      return newWorkouts;
+    });
+  };
+
+  const handleWorkoutDelete = (index) => {
+    setWorkouts((prevWorkouts) => {
+      const newWorkouts = [...prevWorkouts];
+      newWorkouts.splice(index, 1);
+      return newWorkouts;
+    });
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <NavBar />
+        <Routes>
+          <Route
+            path="/"
+            element={<HomePage />}
+          />
+          <Route
+            path="/workouts"
+            element={<WorkoutList workouts={workouts} onDelete={handleWorkoutDelete} />}
+          />
+          <Route
+            path="/create"
+            element={<CreateWorkout onWorkoutCreated={handleWorkoutCreated} />}
+          />
+          <Route
+            path="/delete/:index"
+            element={<DeleteWorkout workouts={workouts} onDelete={handleWorkoutDelete} />}
+          />
+          <Route
+            path="/update/:index"
+            element={<UpdateWorkout workouts={workouts} onUpdate={handleWorkoutUpdate} />}
+          />
+          <Route // Remove this Route
+            path="/register"
+            element={<RegisterPage />}
+          />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
