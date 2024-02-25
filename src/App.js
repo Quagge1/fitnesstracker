@@ -6,7 +6,7 @@ import CreateWorkout from './createWorkout';
 import DeleteWorkout from './deleteWorkout';
 import UpdateWorkout from './updateWorkout';
 import HomePage from './homePage';
-import RegisterPage from './registerPage'; // Import the RegisterPage component
+import RegisterPage from './registerPage'; 
 
 function App() {
   const [workouts, setWorkouts] = useState([]);
