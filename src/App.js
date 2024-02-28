@@ -56,7 +56,7 @@ function App() {
             path="/update/:index"
             element={<UpdateWorkout workouts={workouts} onUpdate={handleWorkoutUpdate} />}
           />
-          <Route // Remove this Route
+          <Route 
             path="/register"
             element={<RegisterPage />}
           />
