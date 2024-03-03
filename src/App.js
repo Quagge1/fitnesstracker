@@ -6,10 +6,14 @@ import CreateWorkout from './createWorkout';
 import DeleteWorkout from './deleteWorkout';
 import UpdateWorkout from './updateWorkout';
 import HomePage from './homePage';
-import RegisterPage from './registerPage'; // Import the RegisterPage component
+import RegisterPage from './registerPage'; 
+import AddGoals from './addGoals';
+import GoalsList from './goalsList';
+import UpdateGoal from './updateGoal';
 
 function App() {
   const [workouts, setWorkouts] = useState([]);
+  const [goals, setGoals] = useState([]); 
 
   const handleWorkoutCreated = (newWorkout) => {
     setWorkouts((prevWorkouts) => [...prevWorkouts, newWorkout]);
@@ -31,6 +35,19 @@ function App() {
     });
   };
 
+  const handleAddGoal = (newGoal) => {
+    setGoals((prevGoals) => [...prevGoals, newGoal]);
+  };
+
+  const handleGoalUpdate = (index, updatedGoal) => {
+    setGoals((prevGoals) => {
+      const newGoals = [...prevGoals];
+      newGoals[index] = updatedGoal;
+      return newGoals;
+    });
+  };
+
+  //page rendering routes with all event handlers 
   return (
     <Router>
       <div>
@@ -56,7 +73,19 @@ function App() {
             path="/update/:index"
             element={<UpdateWorkout workouts={workouts} onUpdate={handleWorkoutUpdate} />}
           />
-          <Route // Remove this Route
+          <Route
+            path="/goals"
+            element={<GoalsPage goals={goals} onUpdate={handleGoalUpdate} />} 
+          />
+          <Route
+            path="/add-goals"
+            element={<AddGoals onAdd={handleAddGoal} />}
+          />
+          <Route
+            path="/update-goal/:index"
+            element={<UpdateGoal goals={goals} onUpdate={handleGoalUpdate} />}
+          />
+          <Route 
             path="/register"
             element={<RegisterPage />}
           />
@@ -64,6 +93,16 @@ function App() {
       </div>
     </Router>
   );
+  
+  // Define GoalsPage component so that it renders as intended 
+  function GoalsPage({ goals, onUpdate }) {
+    return (
+      <div>
+        <AddGoals onAdd={handleAddGoal} />
+        <GoalsList goals={goals} onUpdate={onUpdate} />
+      </div>
+    );
+  }
 }
 
 export default App;

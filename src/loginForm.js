@@ -7,6 +7,7 @@ const LoginForm = () => {
   const [loginMessage, setLoginMessage] = useState('');
   const navigate = useNavigate(); 
 
+  //event handler
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -35,7 +36,7 @@ const LoginForm = () => {
       console.error('Login failed:', error.message);
     }
   };
-
+  //rendering of login form
   return (
     <div>
       <form onSubmit={handleSubmit}>

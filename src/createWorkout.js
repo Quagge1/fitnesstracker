@@ -4,7 +4,8 @@ const CreateWorkout = ({ onWorkoutCreated }) => {
   const [workoutName, setWorkoutName] = useState('');
   const [workoutTime, setWorkoutTime] = useState('');
   const [workoutCalories, setWorkoutCalories] = useState('');
-
+  
+  //event handler
   const handleCreate = () => {
     const newWorkout = {
       name: workoutName,
@@ -20,6 +21,7 @@ const CreateWorkout = ({ onWorkoutCreated }) => {
     setWorkoutCalories('');
   };
 
+  //rendering for event handlers and creating workout
   return (
     <div className="container">
       <h2>Create Workout</h2>

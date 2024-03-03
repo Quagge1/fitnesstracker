@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+//workoutlist structure
 const WorkoutList = ({ workouts, onDelete }) => {
   const handleDelete = (index) => {
     onDelete(index);
   };
 
+  //rendering workout list
   return (
     <div className="container">
       <h2>Workout List</h2>

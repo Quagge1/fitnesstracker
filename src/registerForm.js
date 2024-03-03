@@ -5,6 +5,7 @@ const RegisterForm = () => {
   const [password, setPassword] = useState('');
   const [registrationMessage, setRegistrationMessage] = useState('');
 
+  //register event handler
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -36,7 +37,7 @@ const RegisterForm = () => {
       console.error('Registration failed:', error.message);
     }
   };
-
+  //rendering registration form
   return (
     <div>
       {registrationMessage && <p>{registrationMessage}</p>}

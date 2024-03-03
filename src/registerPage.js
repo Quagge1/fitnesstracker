@@ -1,6 +1,7 @@
 import React from 'react';
 import RegisterForm from './registerForm';
 
+//register structure
 const RegisterPage = () => {
   return (
     <div>

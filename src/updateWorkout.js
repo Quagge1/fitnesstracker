@@ -10,6 +10,7 @@ const UpdateWorkout = ({ workouts, onUpdate }) => {
   const [newWorkoutTime, setNewWorkoutTime] = useState(workout ? workout.time : '');
   const [newWorkoutCalories, setNewWorkoutCalories] = useState(workout ? workout.calories : '');
 
+  //event handler
   const handleUpdate = () => {
     if (workout) {
       const updatedWorkout = {
@@ -21,7 +22,7 @@ const UpdateWorkout = ({ workouts, onUpdate }) => {
       onUpdate(workoutIndex, updatedWorkout);
     }
   };
-
+  //rendering update workout
   return (
     <div className="container">
       <h2>Update Workout</h2>
