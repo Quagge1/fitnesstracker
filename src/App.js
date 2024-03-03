@@ -14,7 +14,7 @@ import UpdateGoal from './updateGoal';
 function App() {
   const [workouts, setWorkouts] = useState([]);
   const [goals, setGoals] = useState([]); 
-
+  //event handlers
   const handleWorkoutCreated = (newWorkout) => {
     setWorkouts((prevWorkouts) => [...prevWorkouts, newWorkout]);
   };
