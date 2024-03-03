@@ -7,9 +7,12 @@ import DeleteWorkout from './deleteWorkout';
 import UpdateWorkout from './updateWorkout';
 import HomePage from './homePage';
 import RegisterPage from './registerPage'; 
+<<<<<<< HEAD
 import AddGoals from './addGoals';
 import GoalsList from './goalsList';
 import UpdateGoal from './updateGoal';
+=======
+>>>>>>> cf4eef42750a3e5971626bbbb4a320f9c2fdeb6e
 
 function App() {
   const [workouts, setWorkouts] = useState([]);
@@ -73,6 +76,7 @@ function App() {
             path="/update/:index"
             element={<UpdateWorkout workouts={workouts} onUpdate={handleWorkoutUpdate} />}
           />
+<<<<<<< HEAD
           <Route
             path="/goals"
             element={<GoalsPage goals={goals} onUpdate={handleGoalUpdate} />} 
@@ -85,6 +89,8 @@ function App() {
             path="/update-goal/:index"
             element={<UpdateGoal goals={goals} onUpdate={handleGoalUpdate} />}
           />
+=======
+>>>>>>> cf4eef42750a3e5971626bbbb4a320f9c2fdeb6e
           <Route 
             path="/register"
             element={<RegisterPage />}
