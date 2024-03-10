@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { motion } from 'framer-motion'; // importing framer-motion for animations
 
 const UpdateWorkout = ({ workouts, onUpdate }) => {
   const { index } = useParams();
@@ -22,9 +23,16 @@ const UpdateWorkout = ({ workouts, onUpdate }) => {
       onUpdate(workoutIndex, updatedWorkout);
     }
   };
-  //rendering update workout
+
+  // defining the animations
+  const containerVariants = {
+    hidden: { opacity: 0, y: -50 }, 
+    visible: { opacity: 1, y: 0 }, 
+  };
+
+  // Rendering update workout with animations
   return (
-    <div className="container">
+    <motion.div className="container" initial="hidden" animate="visible" variants={containerVariants}>
       <h2>Update Workout</h2>
       <label>Workout Name:</label>
       <input
@@ -48,7 +56,7 @@ const UpdateWorkout = ({ workouts, onUpdate }) => {
       />
 
       <button onClick={handleUpdate}>Update</button>
-    </div>
+    </motion.div>
   );
 };
 

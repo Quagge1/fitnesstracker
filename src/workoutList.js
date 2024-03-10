@@ -9,7 +9,7 @@ const WorkoutList = ({ workouts, onDelete }) => {
 
   //rendering workout list
   return (
-    <div className="container">
+    <div className="container fade-in">
       <h2>Workout List</h2>
       <ul>
         {workouts.map((workout, index) => (

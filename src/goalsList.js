@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Goal from './goal'; 
+import './App.css'; //import so that css animations work
 
 const GoalsList = ({ goals, onUpdate }) => {
   const [editingGoalIndex, setEditingGoalIndex] = useState(null);
@@ -33,10 +34,11 @@ const GoalsList = ({ goals, onUpdate }) => {
 
   //return stage for page rendering with event handlers
   return (
-    <div className="goals-list">
+    <div className="goals-list fade-in">
       <h2>Goals List</h2>
       {goals.map((goal, index) => (
-        <div key={index}>
+        //integrating css animations
+        <div key={index} className={`fade-in ${editingGoalIndex === index ? 'fade-out' : ''}`}>
           {editingGoalIndex === index ? (
             <div>
               <label>Name:</label>

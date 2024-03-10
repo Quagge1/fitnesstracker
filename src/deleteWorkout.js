@@ -7,7 +7,7 @@ const DeleteWorkout = ({ match, workouts, onDelete }) => {
   const handleDelete = () => {
     onDelete(workoutIndex);
   };
-//rendering of event handler and deleteing workout
+//rendering of event handler and deleting workout
   return (
     <div className="container">
       <h2>Delete Workout</h2>

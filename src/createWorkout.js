@@ -23,7 +23,7 @@ const CreateWorkout = ({ onWorkoutCreated }) => {
 
   //rendering for event handlers and creating workout
   return (
-    <div className="container">
+    <div className="container fade-in">
       <h2>Create Workout</h2>
       <label>Workout Name:</label>
       <input type="text" value={workoutName} onChange={(e) => setWorkoutName(e.target.value)} />

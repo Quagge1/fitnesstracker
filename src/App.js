@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { motion } from 'framer-motion'; // Import motion from framer-motion
 import NavBar from './NavBar';
 import WorkoutList from './workoutList';
 import CreateWorkout from './createWorkout';
@@ -47,51 +48,68 @@ function App() {
     });
   };
 
+  
+  //defining animations
+const variants = {
+  hidden: { 
+    opacity: 0, 
+    y: 50 
+  },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { duration: 0.5, ease: "easeInOut" } 
+  }
+};
+
+
   //page rendering routes with all event handlers 
   return (
-    <Router>
-      <div>
-        <NavBar />
-        <Routes>
-          <Route
-            path="/"
-            element={<HomePage />}
-          />
-          <Route
-            path="/workouts"
-            element={<WorkoutList workouts={workouts} onDelete={handleWorkoutDelete} />}
-          />
-          <Route
-            path="/create"
-            element={<CreateWorkout onWorkoutCreated={handleWorkoutCreated} />}
-          />
-          <Route
-            path="/delete/:index"
-            element={<DeleteWorkout workouts={workouts} onDelete={handleWorkoutDelete} />}
-          />
-          <Route
-            path="/update/:index"
-            element={<UpdateWorkout workouts={workouts} onUpdate={handleWorkoutUpdate} />}
-          />
-          <Route
-            path="/goals"
-            element={<GoalsPage goals={goals} onUpdate={handleGoalUpdate} />} 
-          />
-          <Route
-            path="/add-goals"
-            element={<AddGoals onAdd={handleAddGoal} />}
-          />
-          <Route
-            path="/update-goal/:index"
-            element={<UpdateGoal goals={goals} onUpdate={handleGoalUpdate} />}
-          />
-          <Route 
-            path="/register"
-            element={<RegisterPage />}
-          />
-        </Routes>
-      </div>
-    </Router>
+    <motion.div initial="hidden" animate="visible" variants={variants}>
+      <Router>
+        <div>
+          <NavBar />
+          <Routes>
+            <Route
+              path="/"
+              element={<HomePage />}
+            />
+            <Route
+              path="/workouts"
+              element={<WorkoutList workouts={workouts} onDelete={handleWorkoutDelete} />}
+            />
+            <Route
+              path="/create"
+              element={<CreateWorkout onWorkoutCreated={handleWorkoutCreated} />}
+            />
+            <Route
+              path="/delete/:index"
+              element={<DeleteWorkout workouts={workouts} onDelete={handleWorkoutDelete} />}
+            />
+            <Route
+              path="/update/:index"
+              element={<UpdateWorkout workouts={workouts} onUpdate={handleWorkoutUpdate} />}
+            />
+            <Route
+              path="/goals"
+              element={<GoalsPage goals={goals} onUpdate={handleGoalUpdate} />} 
+            />
+            <Route
+              path="/add-goals"
+              element={<AddGoals onAdd={handleAddGoal} />}
+            />
+            <Route
+              path="/update-goal/:index"
+              element={<UpdateGoal goals={goals} onUpdate={handleGoalUpdate} />}
+            />
+            <Route 
+              path="/register"
+              element={<RegisterPage />}
+            />
+          </Routes>
+        </div>
+      </Router>
+    </motion.div>
   );
   
   // Define GoalsPage component so that it renders as intended 

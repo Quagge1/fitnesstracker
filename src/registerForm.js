@@ -39,7 +39,7 @@ const RegisterForm = () => {
   };
   //rendering registration form
   return (
-    <div>
+    <div className="fade-in">
       {registrationMessage && <p>{registrationMessage}</p>}
       <form onSubmit={handleSubmit}>
         <div>

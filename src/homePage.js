@@ -1,5 +1,5 @@
 import React from 'react';
-import LoginForm from './loginForm'; // Assuming you have a LoginForm component
+import LoginForm from './loginForm';
 import { Link } from 'react-router-dom';
 
 //home page structure
@@ -22,4 +22,3 @@ const HomePage = () => {
 }
 
 export default HomePage;
-
