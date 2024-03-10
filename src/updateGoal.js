@@ -21,7 +21,7 @@ const UpdateGoal = ({ index, goal, onUpdate }) => {
   };
   //rendering update goal
   return (
-    <div className="container">
+    <div className="container fade-in">
       <h2>Update Goal</h2>
       <form onSubmit={handleSubmit}>
         <label>Name:</label>
