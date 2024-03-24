@@ -1,0 +1,2 @@
+In this Repository you will find the Fitness Tracker application code fro the Front end of the application. Navigate to the FitnessTrackerAPI
+Repository to view the back end. You will also find all the required documents per the Capstone Project guidelines.
